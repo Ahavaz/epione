@@ -2,8 +2,19 @@ import React, { Component } from 'react'
 import './Chart.css'
 import '../../../node_modules/react-vis/dist/style.css'
 import { XYPlot, LineSeries, makeWidthFlexible, HorizontalGridLines, VerticalGridLines, XAxis, YAxis } from 'react-vis'
-
+import { BrowserRouter, Route, Link } from 'react-router-dom'
 class Chart extends Component {
+
+// componentDidMount() {
+//   const csvFilePath = '/Users/tuliomonteiro/Desktop/campus_hackathon/sia2017_All.csv'
+//   const csv = require('csvtojson')
+
+//   csv()
+//   .fromFile(csvFilePath)
+//   .then((jsonObj)=>{
+//     console.log(jsonObj);
+//   })
+// }
   render() {
     const data = [
       { x: 0, y: Math.random() * 30 },
