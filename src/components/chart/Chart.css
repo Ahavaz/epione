@@ -1,5 +1,7 @@
-.Chart {
-  /* display: flex; */
-  /* height: 650px; */
-  /* margin: 50px 50px; */
+.Class {
+  display: flex;
+}
+
+.leaflet-popup-content p {
+  margin: 0;
 }

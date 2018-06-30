@@ -11,10 +11,10 @@ const MyPopupMarker = ({ nom_estab, position, dsc_endereco, dsc_bairro, dsc_tele
   <Marker position={position}>
     <Popup>
       <div>
-        <p>UBS: {nom_estab}</p>
-        <p>ENDEREÇO: {dsc_endereco}</p>
-        <p>BAIRRO: {dsc_bairro}</p>
-        <p>TELEFONE: {dsc_telefone}</p>
+        <p><b>UBS</b>: {nom_estab}</p>
+        <p><b>ENDEREÇO</b>: {dsc_endereco}</p>
+        <p><b>BAIRRO</b>: {dsc_bairro}</p>
+        <p><b>TELEFONE</b>: {dsc_telefone}</p>
       </div>
     </Popup>
   </Marker>
