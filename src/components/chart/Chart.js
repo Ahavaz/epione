@@ -12,6 +12,7 @@ class Chart extends Component {
     zoom: 13,
   }
 
+  
   // componentDidMount() {
   //   const csvFilePath = '/home/lucas/Downloads/ubs.csv'
     
