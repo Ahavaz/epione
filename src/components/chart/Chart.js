@@ -7,9 +7,16 @@ import jsonObj from '../../assets/ubs_linted.json'
 
 // const UbsJson = require('../../assets/ubs_linted.json')
 
-const MyPopupMarker = ({ nom_estab, position }) => (
+const MyPopupMarker = ({ nom_estab, position, dsc_endereco, dsc_bairro, dsc_telefone }) => (
   <Marker position={position}>
-    <Popup>{nom_estab}</Popup>
+    <Popup>
+      <div>
+        <p>UBS: {nom_estab}</p>
+        <p>ENDEREÇO: {dsc_endereco}</p>
+        <p>BAIRRO: {dsc_bairro}</p>
+        <p>TELEFONE: {dsc_telefone}</p>
+      </div>
+    </Popup>
   </Marker>
 )
 
@@ -61,11 +68,6 @@ class Chart extends Component {
           url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png"
         />
         <MyMarkersList markers={this.state.markers} />
-        {/* <Marker position={position}>
-          <Popup>
-            A pretty CSS3 popup. <br /> Easily customizable.
-          </Popup>
-        </Marker> */}
       </Map>
       // <div className="Chart">
       //   <FlexibleVis>
