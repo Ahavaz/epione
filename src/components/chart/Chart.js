@@ -8,11 +8,10 @@ import { Map, TileLayer, Marker, Popup } from 'react-leaflet'
 
 class Chart extends Component {
   state = {
-    lat: 51.505,
-    lng: -0.09,
-    zoom: 13,
+    lat: -15.7835191,
+    lng: -47.8993999,
+    zoom: 17,
   }
-
   
   // componentDidMount() {
   //   const csvFilePath = '/home/lucas/Downloads/ubs.csv'
