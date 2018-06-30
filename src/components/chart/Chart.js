@@ -1,24 +1,27 @@
 import React, { Component } from 'react'
 import './Chart.css'
-import '../../../node_modules/react-vis/dist/style.css'
-import { XYPlot, LineSeries, makeVisFlexible, HorizontalGridLines, VerticalGridLines, XAxis, YAxis } from 'react-vis'
-import csv from 'csvtojson'
+import { Map, TileLayer, Marker, Popup } from 'react-leaflet'
+// import '../../../node_modules/react-vis/dist/style.css'
+// import { XYPlot, LineSeries, makeVisFlexible, HorizontalGridLines, VerticalGridLines, XAxis, YAxis } from 'react-vis'
+// import csv from 'csvtojson'
 
 class Chart extends Component {
   state = {
-    data: []
+    lat: 51.505,
+    lng: -0.09,
+    zoom: 13,
   }
 
-  componentDidMount() {
-    const csvFilePath = '/home/lucas/Downloads/ubs.csv'
+  // componentDidMount() {
+  //   const csvFilePath = '/home/lucas/Downloads/ubs.csv'
     
-    csv().fromFile(csvFilePath)
-      .then((jsonObj => jsonObj.filter(obj => obj.cod_munic === 530010)))
-      .then(jsonPoha => console.log(jsonPoha))
-      .then(jsonFiltered => this.setState({
-        data: jsonFiltered
-    }))
-  }
+  //   csv().fromFile(csvFilePath)
+  //     .then((jsonObj => jsonObj.filter(obj => obj.cod_munic === 530010)))
+  //     .then(jsonPoha => console.log(jsonPoha))
+  //     .then(jsonFiltered => this.setState({
+  //       data: jsonFiltered
+  //   }))
+  // }
 
   render() {
  
@@ -51,18 +54,31 @@ class Chart extends Component {
     //   console.log(array.x, array.y)
     // })
     
-    const FlexibleVis = makeVisFlexible(XYPlot)
+    // const FlexibleVis = makeVisFlexible(XYPlot)
+
+    const position = [this.state.lat, this.state.lng]
 
     return (
-      <div className="Chart">
-        <FlexibleVis>
-          <VerticalGridLines/>
-          <HorizontalGridLines/>
-          <XAxis/>
-          <YAxis/>
-          <LineSeries data={this.state.data}/>
-        </FlexibleVis>
-      </div>
+      <Map className="Chart" center={position} zoom={this.state.zoom}>
+        <TileLayer
+          attribution="&amp;copy <a href=&quot;http://osm.org/copyright&quot;>OpenStreetMap</a> contributors"
+          url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png"
+        />
+        <Marker position={position}>
+          <Popup>
+            A pretty CSS3 popup. <br /> Easily customizable.
+          </Popup>
+        </Marker>
+      </Map>
+      // <div className="Chart">
+      //   <FlexibleVis>
+      //     <VerticalGridLines/>
+      //     <HorizontalGridLines/>
+      //     <XAxis/>
+      //     <YAxis/>
+      //     <LineSeries data={this.state.data}/>
+      //   </FlexibleVis>
+      // </div>
     )
   }
 }

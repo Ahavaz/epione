@@ -1,6 +1,6 @@
 .Chart {
-  display: flex;
+  /* display: flex; */
   height: 550px;
   margin: 50px 50px;
-  background: rgba(0, 255, 255, 0.05);
+  /* background: rgba(0, 255, 255, 0.05); */
 }
